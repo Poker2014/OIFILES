@@ -33,6 +33,19 @@ if(m(s[pointer-1],s[pointer])) then begin
 end;
 end;
 
-if(pointer=0) then writeln('Yes') else writeln('No');
+if(pointer=0) then begin 
+	push(str[length(str)]);
+	i:=length(str);
+	while(i>1) do begin
+		i:=i-1;
+		push(str[i]);
+		if(m(s[pointer],s[pointer-1])) then begin
+			pop();pop();
+		end;
+	end;
+	if(pointer=0) then writeln('Yes');
+end else begin
+	writeln('No');
+end;
 
 end.
